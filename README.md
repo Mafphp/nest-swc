@@ -151,4 +151,4 @@ Nest is [MIT licensed](LICENSE).
     import request from 'supertest';
     ```
 
-It appears that you've made several optimizations to your NestJS project, including the use of SWC and Jest, and resolved issues with imports. If you have any specific questions or need further assistance with any of the points mentioned, please feel free to ask.
+It appears that you've made several optimizations to your NestJS project, including the use of SWC and Jest, and resolved issues with imports.
