@@ -71,3 +71,84 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+
+1. Initially, you were advised to install `@swc/cli` and `@swc/core` as development dependencies:
+
+   ```bash
+   npm i --save-dev @swc/cli @swc/core
+   ```
+
+2. You ran the following command:
+
+   ```bash
+   nest start -b swc
+   ```
+
+3. Your current project's package.json included the following dependencies:
+
+   ```json
+   "@nestjs/core": "^9.0.0",
+   "@nestjs/common": "^9.0.0"
+   ```
+
+4. When running `nest start -b swc`, you encountered an error: "error: unknown option '-b'."
+
+5. You decided to create a new project to see if the issue persisted:
+
+   ```bash
+   npx @nestjs/cli@9.0.0 new my-app-with-swc --skip-install
+   ```
+
+6. You noticed that a project created with NestJS version 10 required the following versions for `@nestjs/common` and `@nestjs/core`:
+
+   ```json
+   "@nestjs/common": "^10.0.0",
+   "@nestjs/core": "^10.0.0"
+   ```
+
+7. You successfully ran the project with NestJS version 10 and found it to be faster in terms of build and start times.
+
+8. You asked if it's necessary to use NestJS version 10. The answer is yes, as this feature is introduced in version 10.
+
+8.1. You tried to create a project with NestJS version 9 to test this feature:
+
+   ```bash
+   npx @nestjs/cli@9.0.0 new my-app-with-swc --skip-install
+   ```
+
+9. You mentioned a feature to inform NestJS that `swc` should be used for building:
+
+   ```bash
+   nest start -b swc --type-check
+   ```
+
+   You also noted that you can add these settings to the `compilerOptions` in the `nest-cli.json` file.
+
+10. You observed a decrease in test performance when using the `--type-check` flag. You asked whether additional configurations are needed for tests. Unit tests should be optimized.
+
+11. You described the setup for SWC and Jest:
+
+   - Installed the necessary packages:
+
+     ```bash
+     npm i --save-dev jest @swc/core @swc/jest
+     ```
+
+   - Updated the `transform` section in the `package.json` to use `@swc/jest` for transforming TypeScript/JavaScript files.
+
+12. When running `npm run test:e2e`, you encountered the error "TypeError: _supertest is not a function."
+
+13. To resolve this error, you changed the import statement from:
+
+    ```javascript
+    import * as request from 'supertest';
+    ```
+
+    to:
+
+    ```javascript
+    import request from 'supertest';
+    ```
+
+It appears that you've made several optimizations to your NestJS project, including the use of SWC and Jest, and resolved issues with imports. If you have any specific questions or need further assistance with any of the points mentioned, please feel free to ask.
